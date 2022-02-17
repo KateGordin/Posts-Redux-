@@ -15,7 +15,6 @@ export default function App() {
 
   return (
     <div>
-      <div></div>
       <Routes>
         {/* more pages to be added here later */}
         <Route path="/login" element={<LoginPage />} />

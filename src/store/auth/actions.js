@@ -37,7 +37,15 @@ export const login = (email, password) => async (dispatch, getState) => {
     // console.log(response);
     const { jwt } = response.data;
 
-    const userProfile = await getUserProfile(jwt);
+    // const userProfile = await getUserProfile(jwt);
+
+    // request /me using token!!! (jwt)
+    const userProfile = await axios.get(
+      "https://codaisseur-coders-network.herokuapp.com/me",
+      { headers: { Authorization: `Bearer ${jwt}` } }
+    );
+
+    console.log(userProfile);
 
     localStorage.setItem("jwt", jwt);
 
